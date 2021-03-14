@@ -1,4 +1,4 @@
-// dziesiêtna kropka lub przecinek. zakres 0 - 9999.99  ver. 1.1.3
+// dziesiêtna kropka lub przecinek. zakres 0 - 9999.99  ver. 1.1.4
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,11 +29,6 @@ void przecinek_kropka()
 		{
 			if (key2 == 13)
 				break;
-															//printf("*** petla1 ***");
-															//printf("licznik= %d  ", znak_licznik);
-															//printf("-- key2 = %d -- ", key2);
-															//printf("@@ key = %d @@ ", key);
-															//printf("*** petla1 ***");
 									
 			key = _getch(); // wprowadzenie znaku z kalwiatury
 			key2 = key;
@@ -69,7 +64,6 @@ void przecinek_kropka()
 	{
 		do // Pêtla druga z przecinkiem i kropk¹
 		{
-														//printf("### petla2 ###");
 			if (key2 == 13)
 				break;
 
@@ -104,7 +98,7 @@ void przecinek_kropka()
 				znak = ',';
 			if (key == '.')
 				znak = '.';
-															//printf(" key2_2=%d\n ", key2);
+															
 		} 
 			while (key != '1' && key != '2' && key != '3' && key != '4' && key != '5' && key != '6' && key != '7' && key != '8' && key != '9' && key != '0' && key != ',' && key != '.');
 	}
@@ -132,9 +126,6 @@ void cyfra_1_liczby()
 	{
 		liczba = cyfra_1;
 
-		/*printf(" Liczba_1= %d\n ", liczba);
-		printf("Po_przecinku = %d", po_przecinku);
-		printf("key2 = %d", key2);*/
 	}
 }
 			
@@ -146,9 +137,6 @@ void cyfra_2_liczby()
 			liczba = cyfra_1;
 		else
 			liczba = cyfra_1 * 10 + cyfra_2;
-		/*printf(" liczba_2= %d\n ", liczba);
-		printf("po_przecinku = %d", po_przecinku);
-		printf("key2 = %d", key2);*/
 	}
 }
 
@@ -162,10 +150,6 @@ void cyfra_3_liczby()
 			liczba = cyfra_1 * 10 + cyfra_2;
 		if (znak_licznik == 0)
 			liczba = cyfra_1 * 100 + cyfra_2 * 10 + cyfra_3;
-
-		/*printf(" Liczba_3= %d\n ", liczba);
-		printf("Po_przecinku = %d", po_przecinku);
-		printf("key2 = %d", key2);*/
 	}
 }
 void cyfra_4_liczby()
@@ -181,9 +165,6 @@ void cyfra_4_liczby()
 			liczba = cyfra_1 * 100 + cyfra_2 * 10 + cyfra_3;
 		if (znak_licznik == 0)
 			liczba = cyfra_1 * 1000 + cyfra_2 * 100 + cyfra_3 * 10 + cyfra_4;
-		/*printf(" Liczba_4= %d\n ", liczba);
-		printf("Po_przecinku = %d", po_przecinku);
-		printf("key2 = %d", key2);*/
 	}
 }
 void cyfra_5_liczby()
@@ -199,9 +180,6 @@ void cyfra_5_liczby()
 			liczba = cyfra_1 * 1000 + cyfra_2 * 100 + cyfra_3 * 10 + cyfra_4;
 		if (znak_licznik == 0)
 			liczba = cyfra_1 * 10000 + cyfra_2 * 1000 + cyfra_3 * 100 + cyfra_4 * 10 + cyfra_5;
-		/*printf(" Liczba_5= %d\n ", liczba);
-		printf("Po_przecinku = %d", po_przecinku);
-		printf("key2 = %d", key2);*/
 	}
 }
 void cyfra_6_liczby()
@@ -218,9 +196,6 @@ void cyfra_6_liczby()
 		if (znak_licznik == 0)
 			liczba = cyfra_1 * 100000 + cyfra_2 * 10000 + cyfra_3 * 1000 + cyfra_4 * 100 + cyfra_5 * 10 + cyfra_6;
 
-		/*printf(" Liczba_6= %d\n ", liczba);
-		printf("Po_przecinku = %d", po_przecinku);
-		printf("key2 = %d", key2);*/
 	}
 
 }
@@ -238,11 +213,6 @@ void cyfra_7_liczby()
 			liczba = cyfra_1 * 100000 + cyfra_2 * 10000 + cyfra_3 * 1000 + cyfra_4 * 100 + cyfra_5 * 10 + cyfra_6;
 		if (znak_licznik == 0)
 			liczba = cyfra_1 * 1000000 + cyfra_2 * 100000 + cyfra_3 * 10000 + cyfra_4 * 1000 + cyfra_5 * 100 + cyfra_6 * 10 + cyfra_7;
-
-		//printf(" Liczba_7= %d\n ", liczba);
-		//printf("Po_przecinku = %d", po_przecinku);
-		//printf("key2 = %d", key2);
-
 	}
 }
 int main(void)
@@ -250,13 +220,10 @@ int main(void)
 	setlocale(LC_ALL, "polish");// polskie literki
 	printf("Podaj liczbê z zakresu 0 - 9999.99 = ");
 
-	for (licznik_a = 0; key2 != 13 && po_przecinku <3 && licznik_a < 7; licznik_a++)
+	for (licznik_a = 0; key2 != 13 && po_przecinku <3 && licznik_a < 7; licznik_a++) // przypisywanie wartoœci kolejnym cyfr¹.  
 	{
 		przecinek_kropka(); // wywo³anie g³ównej funkcji
 
-		//printf("a_poczatek = %d\n", a);
-		//printf("po_przecinku = %d\n", po_przecinku);
-				
 		if (key2 == 13)
 			licznik_a--;
 		
@@ -276,24 +243,7 @@ int main(void)
 				cyfra_7 = cyfra;
 		
 	}
-
-																					/*printf(" Cyfra_1= %d\n ", cyfra_1);
-																					printf(" Cyfra_2= %d\n ", cyfra_2);
-																					printf(" Cyfra_3= %d\n ", cyfra_3);
-																					printf(" Cyfra_4= %d\n ", cyfra_4);
-																					printf(" Cyfra_5= %d\n ", cyfra_5);
-																					printf(" Cyfra_6= %d\n ", cyfra_6);
-																					printf(" Cyfra_7= %d\n ", cyfra_7);*/
-
-
-																					//printf("Znak %c ", znak);
-																					//cyfra = znak;
-																					//printf("Cyfra_znak %d ", cyfra);
-																					//printf("cyfra_7 = %d\n", cyfra_7);
-																					//printf("a_potem = %d\n", a);
-
-	
-	
+		
 	///////////////////////////// ³¹czenie cyfr w liczby ////////////////////////////// 
 	cyfra_1_liczby();
 	cyfra_2_liczby();
@@ -324,17 +274,13 @@ int main(void)
 	printf("\n");
 	printf("\n");
 
-																								//printf("liczba = %d\n", liczba);
-	
 	printf("wprowadzona liczba= %.2lf\n",liczba_float);
 	printf("Liczba jest z przecinkiem lub krop¹, w zale¿noœci od regionu jaki masz ustawiony.\n");
 	printf("Dla Polski jest to przecinek.");
+
 	printf("\n");
 	printf("\n");
 	printf("\n");
-
-
-
 
 	
 	//koniec:
